@@ -18,7 +18,10 @@ image:
   tag: v4.4.1
   pullPolicy: IfNotPresent
 
-service:
+serviceTcp:
+  type: ClusterIP
+
+serviceUdp:
   type: LoadBalancer
   loadBalancerIP: 123.123.123.123
 
