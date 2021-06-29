@@ -1,0 +1,18 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: {{ template "pdns.fullname" . }}-servicemonitor
+  # Change this to the namespace the Prometheus instance is running in
+  # namespace: default
+  labels:
+    app: {{ template "pdns.fullname" . }}-tcp
+    release: prometheus
+spec:
+  selector:
+    matchLabels:
+      app: {{ template "pdns.name" . }} # target gitlab service
+  endpoints:
+  - path: /metrics
+    port: metrics
+    interval: 15s
+
