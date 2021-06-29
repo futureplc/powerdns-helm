@@ -13,6 +13,6 @@ spec:
       app: {{ template "pdns.name" . }} # target gitlab service
   endpoints:
   - path: /metrics
-    port: metrics
+    port: api
     interval: 15s
 
